@@ -93,6 +93,14 @@ public class Mesh {
         }
     }
 
+    public void transform(Matrix m) {
+        for (int i = 0; i < translatedVertices.size(); i++) {
+            Vector3 o = translatedVertices.get(i);
+            
+            translatedVertices.set(i, o.mult(m));
+        }
+    }
+
 
     public void rotateZ(double degrees) {
         double r = Math.toRadians(degrees);

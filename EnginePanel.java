@@ -89,16 +89,28 @@ public class EnginePanel extends JPanel {
         if (inputMap.get("right")) {
             cameraX += cameraSpeed;
         }
+        if (inputMap.get("up")) {
+            cameraY -= cameraSpeed;
+        }
+        if (inputMap.get("down")) {
+            cameraY += cameraSpeed;
+        }
     }
 
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        updateCamera();
-   
-        cube.rotateX(1*frameNum);
-        cube.rotateY(2*frameNum);
-        cube.rotateZ(3*frameNum);
+        // updateCamera();
+        
+        Matrix combo = Matrix.getIdentityMatrix(4);
+        combo = combo.mult(Matrix.getXRotationMatrix(1*frameNum));
+        combo = combo.mult(Matrix.getYRotationMatrix(2*frameNum));
+        combo = combo.mult(Matrix.getZRotationMatrix(3*frameNum));
+        // cube.rotateX(1*frameNum);
+        // cube.rotateY(2*frameNum);
+        // cube.rotateZ(3*frameNum);
+
+        cube.transform(combo);
 
         // Move to it's world space coordinate
         // cube.translate(-cameraX, cameraY, cameraZ);
@@ -107,9 +119,9 @@ public class EnginePanel extends JPanel {
         
         cube.draw(g);
 
-        g.drawString("Camera Pos: (" + cameraX+", "+cameraY+ ")",10,10);
+        // g.drawString("Camera Pos: (" + cameraX+", "+cameraY+ ")",10,10);
         
-        g.drawString(""+frameNum, 750, 30);
+        // g.drawString(""+frameNum, 750, 30);
         frameNum++;
         if (frameNum >= 60*secondsLoop) {
             frameNum = 0;

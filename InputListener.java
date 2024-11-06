@@ -19,6 +19,8 @@ public class InputListener implements MouseInputListener, KeyListener  {
         inputMap.put("left", false);
         inputMap.put("backward", false);
         inputMap.put("right", false);
+        inputMap.put("up", false);
+        inputMap.put("down", false);
     }
 
     @Override
@@ -59,6 +61,12 @@ public class InputListener implements MouseInputListener, KeyListener  {
         else if (e.getKeyChar() == 'd') {
             inputMap.put("right", true);
         }
+        else if (e.getKeyChar() == ' ') {
+            inputMap.put("up", true);
+        }
+        else if (e.getKeyCode() == 16) {
+            inputMap.put("down", true);
+        }
     }
 
     @Override
@@ -74,6 +82,12 @@ public class InputListener implements MouseInputListener, KeyListener  {
         }
         else if (e.getKeyChar() == 'd') {
             inputMap.put("right", false);
+        }
+        else if (e.getKeyChar() == ' ') {
+            inputMap.put("up", false);
+        }
+        else if (e.getKeyCode() == 16) {
+            inputMap.put("down", false);
         }
     }
     

@@ -31,6 +31,17 @@ public class Vector3 {
         return w;
     }
 
+    public Vector3 mult(Matrix m) {
+        double[][] values = m.getValues();
+        Vector3 newVector = new Vector3(
+            x*values[0][0] + y*values[0][1] + z*values[0][2] + w*values[0][3], 
+            x*values[1][0] + y*values[1][1] + z*values[1][2] + w*values[1][3], 
+            x*values[2][0] + y*values[2][1] + z*values[2][2] + w*values[2][3],
+            x*values[3][0] + y*values[3][1] + z*values[3][2] + w*values[3][3]
+        );
+        return newVector;
+    }
+
     public Vector3 copy() {
         return new Vector3(x, y, z);
     }

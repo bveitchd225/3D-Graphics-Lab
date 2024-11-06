@@ -24,14 +24,14 @@ public class Main {
             p.repaint(); // Here's our calculation/draw call
 
             long drawTime = (System.nanoTime() - startTime);
-            System.out.print("\r" + drawTime/1000000.0 + "ms");
-            if (drawTime < frameTime) {
-                try {
-                    Thread.sleep((frameTime - drawTime)/1000000);
-                } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt();
-                }
-            }
+            // System.out.print("\r" + drawTime/1000000.0 + "ms");
+            // if (drawTime < frameTime) {
+            //     try {
+            //         Thread.sleep((frameTime - drawTime)/1000000);
+            //     } catch (InterruptedException e) {
+            //         Thread.currentThread().interrupt();
+            //     }
+            // }
         }
     }
 }
