@@ -43,11 +43,38 @@ In this lab we will be implementing a very basic "3D Engine". This will take qui
 
 
 
-## Introduction
-Starting from nothing is a daunting task but rewarding when it works. While everything we do here has been implemented already (in a better more efficient way), what we're doing is the basis of all 3D Graphics. We'll make "mistakes" that tell the story of why things are the way they are, and with the foresight of this guide, those mistakes will be easy to add on rather than needing to start over from scratch.
+# Preface
+Starting from nothing is a *daunting* task but rewarding when everything starts coming together. Much of what we do has been implemented before, this will be *our* solution which we'll be able to tinker with.
 
-As we go through, I'll let you know if it's worth adding a comment but I recommend to add comments as often as possible as an exercise to think about what we're doing. Use descriptive variable names for often used variables and use single letters when we're about to use a complicated formula.
+We'll occassionally make "mistakes" where we'll have to go back and modify or add something. This is by design to show a lot of the "why"s behind some of the systems that are happening behind the scenes. If you ever choose to make a 3D engine in the future in another language or just for fun, hopefully you'll have the foresight to avoid some of the common mistakes programmers make when creating a 3D engine.
 
+This will be a multi-part lab that will have plenty of checkpoints to check in with your teacher or reflect on what you've written so far. Since you'll most likely not be implementing this all at once, I'd recommend to add comments throughout your code so when you come back to your code that you haven't seen in a while, you can get back up to speed.
+
+# JPanel and JFrame
+## How to draw to the screen
+Unfortunately we'll start off by saying we won't learn how to have our Operating System (OS) communicate with the screen to turn pixels on and off or set colors. This is a complicated task that is typically left to engineers designing the displays. 
+
+It's also a difficult task to have our code tell the OS what to draw to the screen as well. Luckily Java includes a basic Graphics Library called Swing that has some useful classes such as `JFrame` and `JPanel`. We're using Swing as it's included in the standard Java Library meaning if you install Java, you have Swing. There are other options out there but it requires us to download libraries and proprely import them into our code.
+
+So far in our class, we've been using some code written specifically for GBS students that makes it easy for us to draw to the screen. There's not too much setup to achieve this from nothing so that's what we're going to do now.
+
+## Creating our entry point
+When writing a Java program, there needs to be a `static` `void` method named specifically named `main` that takes in a `String` array as an explicit parameter in some `*.java` file. Start by creating a `Main.java` file and create a `Main` class with a `public static void main` method. In our `main` method, let's add a `System.out.println("Hello World!");` to make sure our program starts.
+
+<details>
+  <summary>Example Main File</summary>
+  
+```java
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+}
+```
+</details>
+
+## Creating our JFrame
+The first elemtn
 
 # Foundations
 ## Create `Vector3`
